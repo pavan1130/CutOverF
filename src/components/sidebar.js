@@ -6,6 +6,9 @@ import { IoSpeedometerSharp } from "react-icons/io5";
 import { AiOutlineMenu, AiOutlineLogout } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { FaSave } from "react-icons/fa";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import TimeTracker from "./TimeTracker";
 function Sidebar() {
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -13,6 +16,9 @@ function Sidebar() {
   };
   return (
     <div className="Sidebar">
+      <ToastContainer />
+
+      <TimeTracker />
       <Link to="/welcome">
         <div>
           <IoSpeedometerSharp className="icon-svg" />
@@ -22,11 +28,6 @@ function Sidebar() {
         <AiOutlineMenu className="icon-svg1" />
       </Link>
 
-      <Link to="/save">
-        <div className="icon-save">
-          <FaSave className="icon-svg4" />
-        </div>
-      </Link>
       <AiOutlineLogout className="icon-svg3" onClick={handleLogout} />
     </div>
   );

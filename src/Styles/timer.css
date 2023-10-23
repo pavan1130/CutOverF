@@ -1,0 +1,23 @@
+.beautiful-alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px;
+  background: #4caf50; /* Green background */
+  color: #fff; /* White text */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.5s, transform 0.5s;
+  font-size: 16px;
+  text-align: center;
+  max-width: 300px;
+  border: 2px solid #388e3c; /* Darker green border */
+}
+
+.beautiful-alert:hover {
+  transform: scale(1.05);
+  background: #388e3c; /* Darker green background on hover */
+}

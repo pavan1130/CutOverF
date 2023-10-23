@@ -31,13 +31,13 @@
 // export default App;
 
 //===================================================================================>>Original
-import React from "react";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Welcome from "./components/welcome";
 import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SingupPage";
 import TaskTable from "./components/tasktable";
-import SavePage from "./components/SavePage";
+import React from "react";
 
 function App() {
   return (
@@ -47,7 +47,7 @@ function App() {
           <Routes>
             <Route path="/welcome" element={<Welcome />} />
             <Route path="/tasktable" element={<TaskTable />} />
-            <Route path="/save" element={<SavePage />} />
+
             <Route path="/" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
           </Routes>

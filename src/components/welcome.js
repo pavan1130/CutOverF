@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
 import "../Styles/welcome.css";
 import Sidebar from "../components/sidebar";
+// import { startTimer, resetTimer } from "../components/timer";
 
 import { useUser } from "./UserContext";
 
@@ -105,6 +106,13 @@ function Welcome() {
     },
   };
 
+  // useEffect(() => {
+  //   startTimer();
+
+  //   return () => {
+  //     resetTimer();
+  //   };
+  // }, []);
   // const queryParams = new URLSearchParams(window.location.search);
   // const userEmail = queryParams.get("userEmail") || "";
   // console.log(userDetails);
@@ -112,6 +120,7 @@ function Welcome() {
   return (
     <div className="welcome">
       <Sidebar />
+
       <div className="container">
         <div className="row">
           <div className="col">
@@ -226,10 +235,6 @@ function Welcome() {
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="col-md-auto right-activity">
-            Variable width content
           </div>
         </div>
       </div>
