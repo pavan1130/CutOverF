@@ -6,7 +6,9 @@ import Sidebar from "../components/sidebar";
 // import { startTimer, resetTimer } from "../components/timer";
 
 import { useUser } from "./UserContext";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import TimeTracker from "./TimeTracker";
 function Welcome() {
   const { userData } = useUser();
   const [taskCounts, setTaskCounts] = useState({
@@ -120,7 +122,10 @@ function Welcome() {
   return (
     <div className="welcome">
       <Sidebar />
-
+      <div className="time">
+        <ToastContainer />
+        <TimeTracker />
+      </div>
       <div className="container">
         <div className="row">
           <div className="col">

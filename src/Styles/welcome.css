@@ -101,11 +101,16 @@
   background-color: rgb(255, 162, 0);
 }
 .card-two {
-  background-color: red;
+  background-color: rgb(164, 39, 164);
 }
 .card-three {
   background-color: rgb(30, 144, 144);
 }
 .card-four {
-  background-color: rgb(164, 39, 164);
+  background-color: red;
+}
+.time {
+  position: relative;
+  left: -50px;
+  cursor: pointer;
 }

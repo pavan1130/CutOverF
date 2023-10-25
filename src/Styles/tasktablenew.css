@@ -9,8 +9,8 @@
 table {
   border-collapse: collapse;
   width: 100%;
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-left: 30px;
+  margin-top: 10px;
 }
 
 th,
@@ -22,30 +22,6 @@ td {
 
 th {
   background-color: #f2f2f2;
-}
-
-/* CSS for Sidebar (if needed) */
-.sidebar {
-  width: 250px;
-  height: 100%;
-  background-color: #111;
-  position: fixed;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.sidebar a {
-  padding: 15px 25px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-}
-
-.sidebar a:hover {
-  color: #f1f1f1;
 }
 
 /* Additional CSS for Page Layout (if needed) */
@@ -102,6 +78,9 @@ table tr:hover {
   border-radius: 5px;
   margin: 5px;
   transition: background-color 0.3s;
+  position: relative;
+  left: 30px;
+  top: -30px;
 }
 
 .button:hover {
@@ -148,6 +127,9 @@ table tr:hover {
   border-radius: 5px;
   margin: 5px;
   transition: background-color 0.3s;
+  position: relative;
+  left: 30px;
+  top: -30px;
 }
 
 .file-input-label:hover {
@@ -225,7 +207,7 @@ table tr:hover {
 
 /* Styling for the pagination buttons */
 .pagination button {
-  background-color: #f1f1f1;
+  background-color: #fbfafa;
   border: none;
   color: #333;
   padding: 8px 16px;
@@ -239,7 +221,7 @@ table tr:hover {
 /* Styling for the "Next" button */
 .pagination-button1 {
   position: relative;
-  left: -30%;
+  left: -28%;
   font-size: 14px;
 }
 
@@ -350,46 +332,71 @@ table tr:hover {
 .progress-status {
   color: rgb(164, 39, 164); /* Color for "Progress" status */
 }
-
-.container12 {
-  display: flex;
-  align-items: center;
+.priority {
+  font-size: 14px; /* Updated font size to 18px */
+  font-weight: lighter; /* Added font-weight property */
+  color: rgb(31, 31, 31);
+  margin-top: 4px;
 }
 
-.label12 {
+.pp {
+  font-size: 10px; /* Updated font size to 12px */
+  color: #666;
+  margin-left: 5px;
+  height: 1px;
+  font-weight: 400;
+}
+
+.l {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* Align items to the start of the flex container */
+  align-items: center; /* Vertically center items in the flex container */
+  margin-left: 40px; /* Slightly reduced the left margin */
+  border: 1px solid #e6e6e6; /* Added a border for visual separation */
+  padding: 10px;
+}
+
+.vertical-line {
+  width: 0.2px; /* Adjust the width of the vertical line as needed */
+  background-color: #afafaf; /* Line color (black in this example) */
+  height: 5vh; /* Adjust the height to fill the entire viewport if needed */
+  margin-left: 20px;
   margin-right: 20px;
-  font-weight: bold;
 }
 
-.priority-box,
-.status-box {
+.input-field1 {
+  width: 250px;
+  height: 32px;
+  padding: 8px;
+  border: 1px solid#515151;
+  border-radius: 10px;
+  margin-right: 10px;
+  transition: border 0.3s;
+  margin-left: 20px;
+}
+/* FilterComponent.css */
+
+.filter-container {
   display: flex;
   align-items: center;
+  border: 1px solid #ccc; /* Add a 1px solid border with a light gray color */
+  padding: 5px; /* Add padding to create space between the content and the border */
+  border-radius: 4px;
+  width: 30%;
+  margin-left: 3%;
+  margin-top: -25px;
+}
+.filter-icon {
+  color: #212121;
+  margin-right: 8px;
+  height: 20px;
+  width: 20px;
 }
 
-.red-box,
-.green-box,
-.yellow-box,
-.purple-box {
-  margin-right: 10px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
-}
-
-.red-box {
-  background-color: red; /* Red box for priority "Low" or status "Issue" */
-}
-
-.green-box {
-  background-color: green; /* Green box for priority "High" or status "Completed" */
-}
-
-.yellow-box {
-  background-color: yellow; /* Yellow box for priority "Normal" */
-}
-
-.purple-box {
-  background-color: purple; /* Purple box for status "Progress" */
+.filter-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  margin-left: 0px;
 }

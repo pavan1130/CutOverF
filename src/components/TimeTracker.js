@@ -29,16 +29,16 @@ const TimeTracker = () => {
     const currentTime = new Date();
     const elapsedTime = (currentTime - startTime) / 1000; // in seconds
 
-    if (elapsedTime >= 15 && elapsedTime < 16) {
+    if (elapsedTime >= 20 && elapsedTime < 21) {
       showNotification("Thanks for being in the application");
     }
-    if (elapsedTime >= 20 && elapsedTime < 21) {
+    if (elapsedTime >= 120 && elapsedTime < 121) {
       showNotification("Take a short break");
     }
-    if (elapsedTime >= 30 && elapsedTime < 31) {
-      showNotification("Drink  water!");
+    if (elapsedTime >= 180 && elapsedTime < 181) {
+      showNotification("Take a longer break");
     }
-    if (elapsedTime >= 40 && elapsedTime < 41) {
+    if (elapsedTime >= 240 && elapsedTime < 241) {
       showNotification("Time for lunch!");
     }
   };
@@ -62,11 +62,7 @@ const TimeTracker = () => {
   return (
     <div>
       <div onClick={toggleNotifications}>
-        <FiBell
-          size={26}
-          color={notificationsEnabled ? "white" : "yellow"}
-          style={{ marginLeft: 15, cursor: "pointer" }}
-        />
+        <FiBell size={24} color={notificationsEnabled ? "white" : "yellow"} />
       </div>
     </div>
   );

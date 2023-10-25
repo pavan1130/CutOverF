@@ -9,7 +9,8 @@ import "jspdf-autotable";
 import myLocalImage from "../images/vioce.png";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { FaCheckSquare } from "react-icons/fa";
-
+import { BiSolidCheckbox } from "react-icons/bi";
+import { BsFilterLeft } from "react-icons/bs";
 function TaskTable() {
   const [tasks, setTasks] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -374,7 +375,19 @@ function TaskTable() {
           </div>
         </div>
       )}
+
       <div>
+        <div className="filter-container">
+          <BsFilterLeft size={24} className="filter-icon" />
+          <span className="filter-text">Filter</span>
+          <input
+            type="text"
+            placeholder="Search"
+            className="input-field1"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
         <table id="taskTable">
           <thead>
             <tr>
@@ -414,23 +427,24 @@ function TaskTable() {
             ))}
           </tbody>
         </table>
-        <div class="container12">
-          <div class="label12">
-            <span>Priority</span>
-          </div>
-          <div class="priority-box">
-            <div class="red-box">Low</div>
-            <div class="green-box">High</div>
-            <div class="yellow-box">Normal</div>
-          </div>
-          <div class="label">
-            <span>Completion Status</span>
-          </div>
-          <div class="status-box">
-            <div class="red-box">Issue</div>
-            <div class="green-box">Completed</div>
-            <div class="purple-box">Progress</div>
-          </div>
+        <div className="l">
+          <h6 className="priority">Priority Keys : </h6>
+          <BiSolidCheckbox style={{ color: "red", height: 20, width: 20 }} />
+          <p className="pp">low</p>
+          <BiSolidCheckbox style={{ color: "green", height: 20, width: 20 }} />
+          <p className="pp">high</p>
+          <BiSolidCheckbox
+            style={{ color: "yellowgreen", height: 20, width: 20 }}
+          />
+          <p className="pp">normal</p>
+          <div className="vertical-line"></div>
+          <h6 className="priority">Completion Status Keys : </h6>
+          <BiSolidCheckbox style={{ color: "Sea", height: 20, width: 20 }} />
+          <p className="pp">completed</p>
+          <BiSolidCheckbox style={{ color: "red", height: 20, width: 20 }} />
+          <p className="pp">issue</p>
+          <BiSolidCheckbox style={{ color: "purple", height: 20, width: 20 }} />
+          <p className="pp">progress</p>
         </div>
       </div>
       <div className="pagination">
