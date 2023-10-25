@@ -1,4 +1,4 @@
-.Sidebar {
+/* .Sidebar {
   position: fixed;
   top: 0;
   left: 0;
@@ -42,4 +42,83 @@
   position: relative;
   top: 5%;
   left: 5px;
+} */
+
+.Sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 115px;
+  height: 100vh;
+  background-color: red;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Common styles for icons */
+/* Common styles for icons */
+.icon-svg,
+.icon-svg1,
+.icon-svg3,
+.icon-svg4 {
+  width: 52px;
+  height: 32px;
+  color: rgba(255, 255, 255, 0.993);
+  margin-top: 2px;
+  margin-left: 20px;
+}
+
+.icon-svg1 {
+  margin-top: 2px;
+  margin-left: 20px;
+}
+
+.icon-svg3,
+.icon-save {
+  position: relative;
+  top: 5%;
+  left: 5px;
+}
+
+/* Active icon styles */
+.active-icon {
+  background-color: red;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.active-icon svg {
+  position: relative;
+  z-index: 1;
+  color: rgba(233, 15, 15, 0.993);
+}
+
+.active-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -22px;
+  bottom: 0;
+  width: 134px;
+  background-color: rgb(255, 255, 255);
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  z-index: 0;
+}
+
+.Sidebar div {
+  margin-bottom: -50px;
+  margin-top: 160px; /* Adjust the margin as needed */
+}
+
+.icon-svg3 {
+  margin-top: 60px;
+}
+
+.icon-svg4 {
+  margin-top: -60px;
 }

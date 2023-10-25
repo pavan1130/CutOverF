@@ -9,6 +9,8 @@
 table {
   border-collapse: collapse;
   width: 100%;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 th,
@@ -174,27 +176,31 @@ table tr:hover {
 }
 
 .user-input {
-  margin-top: 20px;
   text-align: center;
+  margin-top: 4px;
 }
 
 .input-field {
-  width: 70%;
-  padding: 12px;
+  width: 88%;
+  padding: 8px;
   border: 1px solid#ffbfbf;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-right: 10px;
   transition: border 0.3s;
 }
 
-.input-field:focus {
-  border: 1px #ff9898;
+.last {
+  position: static;
+  margin: 0 auto;
+  border: 1px solid #c9c9c9;
+  background-color: #e2e2e2;
+  padding: -10px 20px;
+  border-radius: 50px 50px 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 700px;
 }
 
-.last {
-  margin-top: 200px;
-  margin-bottom: 30px;
-}
 @keyframes blink {
   0% {
     opacity: 1;
@@ -209,4 +215,181 @@ table tr:hover {
 
 .blinking {
   animation: blink 1s infinite;
+}
+/* Styling for the pagination container */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Styling for the pagination buttons */
+.pagination button {
+  background-color: #f1f1f1;
+  border: none;
+  color: #333;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin: 0 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Styling for the "Next" button */
+.pagination-button1 {
+  position: relative;
+  left: -30%;
+  font-size: 14px;
+}
+
+/* Styling for the "Previous" button */
+.pagination-button2 {
+  position: relative;
+  right: -33%;
+  font-size: 14px;
+}
+
+/* Styling for the active page button */
+.pagination button.active {
+  background-color: red;
+  color: white;
+}
+
+/* Styling for disabled buttons */
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Hover effect for all buttons */
+.pagination button:hover {
+  background-color: #ddd;
+}
+
+/* Icon styling */
+.pagination-button svg {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+.pagination-button:last-child svg {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+/* CSS for the custom checkbox */
+.custom-checkbox {
+  appearance: none;
+  width: 15px;
+  height: 16px;
+  background-color: #fff;
+  border: 1.5px solid rgb(192, 123, 123);
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+}
+
+.custom-checkbox:checked {
+  background-color: rgb(188, 66, 66);
+}
+
+.custom-checkbox:after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 6px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  display: none;
+}
+
+.custom-checkbox:checked:after {
+  display: block;
+}
+
+/* Style when the checkbox is disabled */
+.custom-checkbox:disabled {
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  cursor: not-allowed;
+}
+
+.custom-checkbox:disabled:checked {
+  background-color: #ccc;
+}
+
+.custom-checkbox:disabled:after {
+  border-color: #888;
+}
+
+.low-priority {
+  color: red;
+}
+
+.normal-priority {
+  color: rgb(202, 202, 26);
+}
+
+.high-priority {
+  color: green;
+}
+
+/* Add these CSS rules to your tasktablenew.css file */
+.completed-status {
+  color: rgb(30, 144, 144); /* Color for "Completed" status */
+}
+
+.issue-status {
+  color: red; /* Color for "Issue" status */
+}
+
+.progress-status {
+  color: rgb(164, 39, 164); /* Color for "Progress" status */
+}
+
+.container12 {
+  display: flex;
+  align-items: center;
+}
+
+.label12 {
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.priority-box,
+.status-box {
+  display: flex;
+  align-items: center;
+}
+
+.red-box,
+.green-box,
+.yellow-box,
+.purple-box {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.red-box {
+  background-color: red; /* Red box for priority "Low" or status "Issue" */
+}
+
+.green-box {
+  background-color: green; /* Green box for priority "High" or status "Completed" */
+}
+
+.yellow-box {
+  background-color: yellow; /* Yellow box for priority "Normal" */
+}
+
+.purple-box {
+  background-color: purple; /* Purple box for status "Progress" */
 }

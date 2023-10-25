@@ -7,6 +7,8 @@ import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import myLocalImage from "../images/vioce.png";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaCheckSquare } from "react-icons/fa";
 
 function TaskTable() {
   const [tasks, setTasks] = useState([]);
@@ -17,6 +19,9 @@ function TaskTable() {
   const [selectedTasks, setSelectedTasks] = useState([]);
   const [search, setSearch] = useState("");
   const [isBlinking, setIsBlinking] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const tasksPerPage = 10;
+
   const fetchData = async () => {
     try {
       const response = await fetch(`http://localhost:3000/api/users/${userId}`);
@@ -68,17 +73,15 @@ function TaskTable() {
   const [filteredTasks, setFilteredTasks] = useState([]);
 
   useEffect(() => {
-    const searchLowerCase = search.toLowerCase();
-
     // Custom filter function to match the search input against task data
+    const searchLowerCase = search.toLowerCase();
     const filtered = tasks.filter((task) => {
-      // Split the task data into individual parts
       const parts = Object.values(task).map((value) =>
         String(value).toLowerCase()
       );
 
-      const priority = task.priority?.toLowerCase() || ""; // Use an empty string if priority is undefined
-      const completionStatus = task.completionStatus?.toLowerCase() || ""; // Use an empty string if completionStatus is undefined
+      const priority = task.priority?.toLowerCase() || "";
+      const completionStatus = task.completionStatus?.toLowerCase() || "";
 
       if (
         (searchLowerCase.includes("low") && priority.includes("low")) ||
@@ -94,7 +97,6 @@ function TaskTable() {
         return true;
       }
 
-      // Check if the search input matches any part of the task data
       const matchesSearch = parts.some((part) =>
         part.includes(searchLowerCase)
       );
@@ -104,6 +106,22 @@ function TaskTable() {
 
     setFilteredTasks(filtered);
   }, [search, tasks]);
+
+  const indexOfLastTask = currentPage * tasksPerPage;
+  const indexOfFirstTask = indexOfLastTask - tasksPerPage;
+  const currentTasks = filteredTasks.slice(indexOfFirstTask, indexOfLastTask);
+
+  const handleNextPage = () => {
+    if (currentPage < Math.ceil(filteredTasks.length / tasksPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
   // Handle download
   const handleDownload = () => {
@@ -276,6 +294,32 @@ function TaskTable() {
     }
   };
 
+  function getPriorityClass(priority) {
+    switch (priority) {
+      case "low":
+        return "low-priority";
+      case "normal":
+        return "normal-priority";
+      case "high":
+        return "high-priority";
+      default:
+        return ""; // Add a default class if needed
+    }
+  }
+
+  function getStatusClass(status) {
+    switch (status.toLowerCase()) {
+      case "completed":
+        return "completed-status";
+      case "issue":
+        return "issue-status";
+      case "progress":
+        return "progress-status";
+      default:
+        return ""; // Add a default class if needed
+    }
+  }
+
   return (
     <>
       <Sidebar />
@@ -334,7 +378,9 @@ function TaskTable() {
         <table id="taskTable">
           <thead>
             <tr>
-              <th>Select task</th>
+              <th>
+                <FaCheckSquare />
+              </th>
               <th>Task ID</th>
               <th>Task Name</th>
               <th>Assigned To</th>
@@ -344,11 +390,12 @@ function TaskTable() {
             </tr>
           </thead>
           <tbody>
-            {filteredTasks.map((task) => (
+            {currentTasks.map((task) => (
               <tr key={task._id}>
                 <td>
                   <input
                     type="checkbox"
+                    className="custom-checkbox"
                     checked={selectedTasks.includes(task._id)}
                     onChange={() => handleCheckboxChange(task._id)}
                   />
@@ -356,13 +403,67 @@ function TaskTable() {
                 <td>{task.taskId}</td>
                 <td>{task.taskName}</td>
                 <td>{task.assignedTo}</td>
-                <td>{task.priority}</td>
+                <td className={getPriorityClass(task.priority)}>
+                  {task.priority}
+                </td>
                 <td>{task.dueDate}</td>
-                <td>{task.completionStatus}</td>
+                <td className={getStatusClass(task.completionStatus)}>
+                  {task.completionStatus}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
+        <div class="container12">
+          <div class="label12">
+            <span>Priority</span>
+          </div>
+          <div class="priority-box">
+            <div class="red-box">Low</div>
+            <div class="green-box">High</div>
+            <div class="yellow-box">Normal</div>
+          </div>
+          <div class="label">
+            <span>Completion Status</span>
+          </div>
+          <div class="status-box">
+            <div class="red-box">Issue</div>
+            <div class="green-box">Completed</div>
+            <div class="purple-box">Progress</div>
+          </div>
+        </div>
+      </div>
+      <div className="pagination">
+        <button
+          className="pagination-button1"
+          onClick={handlePrevPage}
+          disabled={currentPage === 1}
+        >
+          <FaArrowLeft />
+          Previous
+        </button>
+        {Array(Math.ceil(filteredTasks.length / tasksPerPage))
+          .fill()
+          .map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentPage(index + 1)}
+              className={`pagination-button ${
+                currentPage === index + 1 ? "active" : ""
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+        <button
+          className="pagination-button2"
+          onClick={handleNextPage}
+          disabled={
+            currentPage === Math.ceil(filteredTasks.length / tasksPerPage)
+          }
+        >
+          Next <FaArrowRight />
+        </button>
       </div>
       <div className="last">
         <div className="user-input">
