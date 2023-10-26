@@ -23,7 +23,7 @@
 }
 
 .table-container {
-  max-height: 430px;
+  max-height: 420px;
   overflow-y: auto;
 }
 
@@ -85,7 +85,7 @@
   font-size: 16px;
   padding: 8px 10px;
   margin: 0 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #e7e7e7;
   border-radius: 4px;
   cursor: pointer;
   background-color: white;

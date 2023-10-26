@@ -357,7 +357,7 @@ function TaskTable() {
         onClick={handleDeleteSelectedTasks}
         disabled={!selectedTasks.length}
       >
-        Delete Selected Tasks
+        Delete
       </button>
       {/* <button
         className="button"

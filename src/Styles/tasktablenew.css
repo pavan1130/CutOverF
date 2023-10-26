@@ -8,8 +8,8 @@
 
 table {
   border-collapse: collapse;
-  width: 100%;
-  margin-left: 30px;
+  width: 90%;
+  margin-left: 55px;
   margin-top: 10px;
 }
 
@@ -17,7 +17,7 @@ th,
 td {
   border: 1px solid #dddddd;
   text-align: left;
-  padding: 8px;
+  padding: 4px;
 }
 
 th {
@@ -69,7 +69,7 @@ table tr:hover {
 /*Button css */
 .button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 4px 12px;
   font-size: 16px;
   cursor: pointer;
   background-color: #ec4d4d98; /* Blue color, you can change this to your desired color */
@@ -79,7 +79,7 @@ table tr:hover {
   margin: 5px;
   transition: background-color 0.3s;
   position: relative;
-  left: 30px;
+  left: 350px;
   top: -30px;
 }
 
@@ -118,7 +118,7 @@ table tr:hover {
 /*file upload*/
 .file-input-label {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 4px 12px;
   font-size: 16px;
   cursor: pointer;
   background-color: #ffc107; /* Yellow color, you can change this to your desired color */
@@ -128,7 +128,7 @@ table tr:hover {
   margin: 5px;
   transition: background-color 0.3s;
   position: relative;
-  left: 30px;
+  left: 350px;
   top: -30px;
 }
 
@@ -172,15 +172,15 @@ table tr:hover {
 }
 
 .last {
-  position: static;
+  position: fixed;
   margin: 0 auto;
   border: 1px solid #c9c9c9;
   background-color: #e2e2e2;
   padding: -10px 20px;
   border-radius: 50px 50px 1px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  max-width: 700px;
+  width: 50%;
+  left: 30%;
+  top: 90%;
 }
 
 @keyframes blink {
@@ -202,15 +202,17 @@ table tr:hover {
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  position: fixed;
+  top: 80%;
+  left: 30%;
 }
 
 /* Styling for the pagination buttons */
 .pagination button {
-  background-color: #fbfafa;
+  background-color: #ffffff;
   border: none;
   color: #727272;
-  padding: 8px 16px;
+  padding: 4px 10px;
   text-decoration: none;
   transition: background-color 0.3s;
   margin: 0 4px;
@@ -221,14 +223,14 @@ table tr:hover {
 /* Styling for the "Next" button */
 .pagination-button1 {
   position: relative;
-  left: -28%;
+  left: -88%;
   font-size: 14px;
 }
 
 /* Styling for the "Previous" button */
 .pagination-button2 {
   position: relative;
-  right: -33%;
+  right: -223%;
   font-size: 14px;
 }
 
@@ -333,8 +335,8 @@ table tr:hover {
   color: rgb(164, 39, 164); /* Color for "Progress" status */
 }
 .priority {
-  font-size: 14px; /* Updated font size to 18px */
-  font-weight: lighter; /* Added font-weight property */
+  font-size: 10px; /* Updated font size to 18px */
+  font-weight: bold; /* Added font-weight property */
   color: rgb(31, 31, 31);
   margin-top: 4px;
 }
@@ -352,15 +354,18 @@ table tr:hover {
   flex-direction: row;
   justify-content: flex-start; /* Align items to the start of the flex container */
   align-items: center; /* Vertically center items in the flex container */
-  margin-left: 40px; /* Slightly reduced the left margin */
   border: 1px solid #e6e6e6; /* Added a border for visual separation */
-  padding: 10px;
+  padding: 1px;
+  border-radius: 5px;
+  width: 50%;
+  position: absolute;
+  left: 27%;
+  top: 103%;
 }
-
 .vertical-line {
   width: 0.2px; /* Adjust the width of the vertical line as needed */
   background-color: #afafaf; /* Line color (black in this example) */
-  height: 5vh; /* Adjust the height to fill the entire viewport if needed */
+  height: 3vh; /* Adjust the height to fill the entire viewport if needed */
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -382,21 +387,20 @@ table tr:hover {
   align-items: center;
   border: 1px solid #ccc; /* Add a 1px solid border with a light gray color */
   padding: 5px; /* Add padding to create space between the content and the border */
-  border-radius: 4px;
-  width: 30%;
-  margin-left: 3%;
-  margin-top: -25px;
+  border-radius: 5px;
+  width: 25%;
+  margin-left: 5%;
+  margin-top: -75px;
 }
 .filter-icon {
   color: #212121;
-  margin-right: 8px;
-  height: 20px;
-  width: 20px;
+  margin-right: 1px;
+  height: 10px;
+  width: 10px;
 }
 
 .filter-text {
   font-size: 14px;
   font-weight: 400;
   color: #333;
-  margin-left: 0px;
 }
