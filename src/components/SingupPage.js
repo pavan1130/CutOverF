@@ -19,13 +19,16 @@ const SingupPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/api/users/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://amused-khakis-fly.cyclic.app/api/users/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         // Successful registration, you can redirect or show a success message

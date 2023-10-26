@@ -23,7 +23,7 @@ const AddTaskForm = ({ userId, onTaskAdded, onCancel }) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:3000/api/users/${userId}/tasks`,
+        `https://amused-khakis-fly.cyclic.app/api/users/${userId}/tasks`,
         {
           method: "POST",
           headers: {

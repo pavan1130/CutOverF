@@ -26,7 +26,7 @@ function Welcome() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/users/${userId}`
+          `https://amused-khakis-fly.cyclic.app/api/users/${userId}`
         );
         const data = await response.json();
 

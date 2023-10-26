@@ -25,7 +25,9 @@ function TaskTable() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/users/${userId}`);
+      const response = await fetch(
+        `https://amused-khakis-fly.cyclic.app/api/users/${userId}`
+      );
       const data = await response.json();
       const userTasks = data.user.tasks || []; // Ensure userTasks is an array
       setTasks(userTasks);
@@ -180,7 +182,7 @@ function TaskTable() {
         for (const taskData of excelData) {
           try {
             const response = await fetch(
-              `http://localhost:3000/api/users/${userId}/tasks`,
+              `https://amused-khakis-fly.cyclic.app/api/users/${userId}/tasks`,
               {
                 method: "POST",
                 headers: {
@@ -252,7 +254,7 @@ function TaskTable() {
     try {
       for (const taskId of selectedTasks) {
         const response = await fetch(
-          `http://localhost:3000/api/users/${userId}/tasks/${taskId}`,
+          `https://amused-khakis-fly.cyclic.app/api/users/${userId}/tasks/${taskId}`,
           {
             method: "DELETE",
           }
@@ -274,26 +276,26 @@ function TaskTable() {
   };
 
   // Send email
-  const handleSendEmail = async (userId, taskId, recipientEmail) => {
-    try {
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ userId, taskId, recipientEmail }),
-      });
+  // const handleSendEmail = async (userId, taskId, recipientEmail) => {
+  //   try {
+  //     const response = await fetch("/api/send-email", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ userId, taskId, recipientEmail }),
+  //     });
 
-      if (response.ok) {
-        alert("Email sent successfully!");
-      } else {
-        alert("Error sending email.");
-      }
-    } catch (error) {
-      console.error("Error sending email:", error);
-      alert("Error sending email.");
-    }
-  };
+  //     if (response.ok) {
+  //       alert("Email sent successfully!");
+  //     } else {
+  //       alert("Error sending email.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error sending email:", error);
+  //     alert("Error sending email.");
+  //   }
+  // };
 
   function getPriorityClass(priority) {
     switch (priority) {
@@ -307,17 +309,23 @@ function TaskTable() {
         return ""; // Add a default class if needed
     }
   }
-
   function getStatusClass(status) {
-    switch (status.toLowerCase()) {
-      case "completed":
-        return "completed-status";
-      case "issue":
-        return "issue-status";
-      case "progress":
-        return "progress-status";
-      default:
-        return ""; // Add a default class if needed
+    // Check if status is defined and not null
+    if (status) {
+      const lowerCaseStatus = status.toLowerCase();
+
+      switch (lowerCaseStatus) {
+        case "completed":
+          return "completed-status";
+        case "issue":
+          return "issue-status";
+        case "progress":
+          return "progress-status";
+        default:
+          return ""; // Add a default class if needed
+      }
+    } else {
+      return ""; // Handle the case where status is undefined or null
     }
   }
 
@@ -351,13 +359,13 @@ function TaskTable() {
       >
         Delete Selected Tasks
       </button>
-      <button
+      {/* <button
         className="button"
         onClick={handleSendEmail}
         disabled={!selectedTasks.length}
       >
         Send Mail
-      </button>
+      </button> */}
       <button className="button" onClick={fetchData}>
         Reload Tasks
       </button>
@@ -384,7 +392,6 @@ function TaskTable() {
             type="text"
             placeholder="Search"
             className="input-field1"
-            value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
